@@ -54,6 +54,4 @@ class Recording {
 	Recording(const Recording & aRecording); //hide copy constructor in private section	
 };
 
-ostream & operator<<(ostream & out, const Recording & aRecording);
-
 #endif

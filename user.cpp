@@ -43,27 +43,27 @@ int User::getID(){return id;}
 string User::getUserID(){return userid;}
 
 vector<Playlist*>::iterator User::findPosition(Playlist & aPlaylist){
-	for (vector<Playlist*>::iterator itr = playlists.begin() ; itr != playlists.end(); ++itr)
+	for (auto itr = playlists.begin() ; itr != playlists.end(); ++itr)
 		if(*itr == &aPlaylist) return itr;
 	return playlists.end();
 }
 
 Playlist* User::findPlaylist(const string & aPlaylistName){
-	for (vector<Playlist*>::iterator itr = playlists.begin() ; itr != playlists.end(); ++itr)
+	for (auto itr = playlists.begin() ; itr != playlists.end(); ++itr)
 		if(((*itr)->getName()).compare(aPlaylistName) == 0) return *itr;
 	return NULL;
 }
 
 void User::addPlaylist(Playlist & aPlaylist){
 	//add playlist if it does not already exist
-	vector<Playlist*>::iterator itr = findPosition(aPlaylist);
+	auto itr = findPosition(aPlaylist);
 	if(itr == playlists.end()) {
 		playlists.push_back(&aPlaylist);
 	}	
 }
 
 void User::removePlaylist(Playlist & aPlaylist){
-	vector<Playlist*>::iterator itr = findPosition(aPlaylist);
+	auto itr = findPosition(aPlaylist);
 	if(itr != playlists.end()) {
 	   Playlist * playlist = *itr;
 	   playlists.erase(itr);
@@ -72,7 +72,7 @@ void User::removePlaylist(Playlist & aPlaylist){
 }
 
 void User::removeTrack(Track & aTrack){
-	for (vector<Playlist*>::iterator itr = playlists.begin() ; itr != playlists.end(); ++itr){
+	for (auto itr = playlists.begin() ; itr != playlists.end(); ++itr){
 		Playlist * playlist = *itr;
 		playlist->removeTrack(aTrack);
 	}
@@ -90,9 +90,4 @@ string User::toString()const {
 	}
 	
 	return s;
-}
-//TODO: Could be refactored
-ostream & operator<<(ostream & out, const User & aUser){
-	out << aUser.toString() << endl;
-	return out;
 }

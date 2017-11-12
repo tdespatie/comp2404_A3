@@ -22,6 +22,7 @@
 #include <vector>
 
 #include "track.h"
+#include "inherit.h"
 
 
 class Playlist {
@@ -45,6 +46,5 @@ class Playlist {
 	Playlist(const Playlist & aPlaylist); //hide copy constructor in private section
 };
 
-ostream & operator<<(ostream & out, const Playlist & aPlaylist);
 
 #endif

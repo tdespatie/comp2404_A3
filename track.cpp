@@ -19,7 +19,6 @@ using namespace std;
 
 #include "track.h"
 
-
 Track::Track(const int aTrackId, Song * songptr, const string & anMp3FileName ){
 	cout << "Track(int, Song*, string&)" << endl;
 	id = aTrackId;
@@ -39,10 +38,4 @@ string Track::getMp3FileName(){return mp3FileName;}
 
 string Track::toString()const {
 	return to_string(id) + ": " + song->getTitle() + " mp3: " + mp3FileName;
-}
-
-
-ostream & operator<<(ostream & out, const Track & aTrack){
-	out << aTrack.toString() << endl;
-	return out;
 }

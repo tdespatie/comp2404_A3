@@ -64,8 +64,6 @@ public:
     // Refactored CODE
     template<typename V>
     void showOn(UI & aView, V memberID) {
-        const char *type = typeid(T).name();
-        aView.printOutput(*type + ":");
         T * item = findByID(memberID);
         if (item != NULL)
             aView.printOutput(item->toString());
@@ -75,7 +73,7 @@ public:
         return out << t.toString() << endl;
     }
 
-    vector<T*> getCollection() {
+    vector<T*> getCollection() const {
         return collection;
     }
 

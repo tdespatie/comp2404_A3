@@ -37,6 +37,4 @@ class Song {
 	Song(const Song & aSong); //hide copy constructor in private section
 };
 
-ostream & operator<<(ostream & out, const Song & aSong);
-
 #endif

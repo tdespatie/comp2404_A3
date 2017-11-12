@@ -49,6 +49,5 @@ class User {
 	User(const User & aUser); //hide copy constructor in private section
 };
 
-ostream & operator<<(ostream & out, const User & aUser);
 
 #endif

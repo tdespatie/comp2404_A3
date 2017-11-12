@@ -46,14 +46,14 @@ vector<Track*> & Recording::getTracks(){return tracks;}
 
 //TODO: Could be refactored
 vector<Track*>::iterator Recording::findPosition(Track & aTrack){
-	for (vector<Track*>::iterator it = tracks.begin() ; it != tracks.end(); ++it)
+	for (auto it = tracks.begin() ; it != tracks.end(); ++it)
 		if(*it == &aTrack) return it;
 	return tracks.end();
 }
 
 void Recording::addTrack(Track & aTrack, int position){
 	//add track if it does not already exist
-	vector<Track*>::iterator itr = findPosition(aTrack);
+	auto itr = findPosition(aTrack);
 	if(itr == tracks.end()) {
 		if(position >=0 && position < MAX_NUMBER_OF_TRACKS)
 		   tracks[position] = &aTrack;
@@ -78,9 +78,4 @@ string Recording::toString()const {
 	}
 	
 	return s;
-}
-//TODO: Could be refactored
-ostream & operator<<(ostream & out, const Recording & aRecording){
-	out << aRecording.toString() << endl;
-	return out;
 }

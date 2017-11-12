@@ -41,8 +41,3 @@ string Song::toString()const {
 	return to_string(id) + " " + getTitle() + " " + composer;
 }
 
-//TODO: Could be refactored
-ostream & operator<<(ostream & out, const Song & aSong){
-	out << aSong.toString() << endl;
-	return out;
-}

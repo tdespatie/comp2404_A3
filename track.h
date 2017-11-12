@@ -40,6 +40,4 @@ class Track {
 	Track(const Track & aTrack); //hide copy constructor in private section
 };
 
-ostream & operator<<(ostream & out, const Track & aTrack);
-
 #endif
