@@ -34,12 +34,12 @@ class Recording: public Data<Track> {
 	Recording(const string & aTitle, 
 	          const string & anArtist,
               const string & aProducer,
-              const string & aYear,			  
-			  const int anId = -1); 
-	~Recording(void);
+              const string & aYear,
+			  int anId = -1);
+	~Recording();
 	void removeTrack(Track & aTrack);
 	void addTrack(Track & track, int position);
-	vector<Track*> & getTracks();
+	//vector<Track*> & getTracks();
     string toString() const;
 	
 	private:

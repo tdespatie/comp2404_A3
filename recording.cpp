@@ -39,15 +39,7 @@ Recording::~Recording(){
 	cout << "~Recording(void)" << endl;
 }
 
-vector<Track*> & Recording::getTracks(){return collection;}
-
-
-//TODO: Could be refactored
-vector<Track*>::iterator Recording::findPosition(Track & aTrack){
-	for (auto it = collection.begin() ; it != collection.end(); ++it)
-		if(*it == &aTrack) return it;
-	return collection.end();
-}
+//vector<Track*> & Recording::getTracks(){return collection;}
 
 void Recording::addTrack(Track & aTrack, int position){
 	//add track if it does not already exist
@@ -60,8 +52,8 @@ void Recording::addTrack(Track & aTrack, int position){
 
 void Recording::removeTrack(Track & aTrack){
 	//remove track from recording
-	for(vector<Track*>::size_type i = 0; i<collection.size(); i++)
-		if(collection[i] == &aTrack) collection[i] = NULL;
+	for (auto &i : collection)
+		if(i == &aTrack) i = NULL;
 }
 
 string Recording::toString()const {
