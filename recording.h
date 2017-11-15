@@ -25,7 +25,7 @@
 
 const int MAX_NUMBER_OF_TRACKS = 25; //max number of tracks on a recording
 
-class Recording: public Data<Track> {
+class Recording: public data<Track> {
 	/*
 	Recording represents a musical commercial package of audio tracks
 	For example a record album, CD, or single.

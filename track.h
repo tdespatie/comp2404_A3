@@ -21,9 +21,9 @@
 using namespace std;
 
 #include "song.h"
-#include "Data.h"
+#include "data.h"
 
-class Track: public Data<Track> {
+class Track: public data<Track> {
 	/*
 	Track represents a audio recording of a single Song
 	*/

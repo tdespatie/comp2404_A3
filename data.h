@@ -14,7 +14,7 @@
 #include <vector>
 
 template <typename T>
-class Data {
+class data {
 public:
     int id;
     vector<T*> collection;

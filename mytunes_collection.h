@@ -26,9 +26,9 @@
 using namespace std;
 
 template <typename T>
-class MyTunesCollection {
+class mytunes_collection {
 public:
-    ~MyTunesCollection() {
+    ~mytunes_collection() {
         for (int i=0; i<collection.size(); i++)
             delete collection[i]; // Free up used memory
     }

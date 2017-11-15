@@ -24,7 +24,7 @@
 #include "track.h"
 
 
-class Playlist : public Data<Track> {
+class Playlist : public data<Track> {
 	/*
 	Playlist represents an user playlist of tracks.
 	*/

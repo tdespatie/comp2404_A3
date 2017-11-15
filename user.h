@@ -23,7 +23,7 @@
 
 #include "playlist.h"
 
-class User: public Data<Playlist> {
+class User: public data<Playlist> {
 	/*
 	User represents an application user.
 	*/

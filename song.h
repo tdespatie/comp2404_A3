@@ -19,9 +19,9 @@
 
 #include <ostream>
 #include <string>
-#include "Data.h"
+#include "data.h"
 
-class Song: public Data<Song> {
+class Song: public data<Song> {
 	/*
 	Song represents a musical composition (not an audio recording)
 	*/

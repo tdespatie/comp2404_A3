@@ -23,7 +23,7 @@
 #include "recording.h"
 #include "track.h"
 #include "user.h"
-#include "MyTunesCollection.h"
+#include "mytunes_collection.h"
 
 using namespace std;
 
@@ -47,10 +47,10 @@ class MyTunes
 	int nextAvailableRecordingID;
 	int nextAvailableTrackID;
 	//Data collections
-	MyTunesCollection<Song> songs;
-	MyTunesCollection<Recording> recordings;
-	MyTunesCollection<Track> tracks;
-	MyTunesCollection<User> users;
+	mytunes_collection<Song> songs;
+	mytunes_collection<Recording> recordings;
+	mytunes_collection<Track> tracks;
+	mytunes_collection<User> users;
 	
     void executeCMDADD(Command cmd);
     void executeCMDDELETE(Command cmd);
