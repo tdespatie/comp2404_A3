@@ -1,18 +1,8 @@
-To compile:
-make clean mytunes
-To run:
-./mytunes
+Student Name: Tyler Despatie
+Assignment: COMP 2404 Assignment 3
+Date Due: 16 Nov 2017
 
-The program reads the insert_beatles_tracks_rev1.txt script on startup.
-To disable this behaviour comment out the lines:
-
-  //initialize app with input script
-  Command cmd = Command(".read insert_beatles_tracks_rev1.txt");
-  executeCommand(cmd);
-
-in the run() method at the start of the UI.cpp file.
-
-Please report bugs to me so I can fix them.
-Lou Nel
-ldnel@scs.carleton.ca
+To compile: make clean mytunes
+To run: ./mytunes
+To test assignment 3 refactoring (regression testing): run the command ".read commands.txt"
 

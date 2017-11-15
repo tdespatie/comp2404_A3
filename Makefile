@@ -3,7 +3,7 @@ OBJ = main.o mytunes.o UI.o command.o str_util.o song.o recording.o track.o user
 mytunes: $(OBJ)
 	g++ -o mytunes $(OBJ)
 
-main.o:	main.cpp
+main.o:	main.cpp Data.h
 	g++ -c -std=c++11 main.cpp
 
 mytunes.o:	mytunes.cpp mytunes.h MyTunesCollection.h
