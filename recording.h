@@ -3,7 +3,7 @@
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel								 */
 /*  Contributors: Tyler Despatie 101010622			 */
-/*  Date:     21-SEP-2017                            */
+/*  Date:     14-Nov-2017                            */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -25,7 +25,7 @@
 
 const int MAX_NUMBER_OF_TRACKS = 25; //max number of tracks on a recording
 
-class Recording {
+class Recording: public Data<Track> {
 	/*
 	Recording represents a musical commercial package of audio tracks
 	For example a record album, CD, or single.
@@ -37,20 +37,13 @@ class Recording {
               const string & aYear,			  
 			  const int anId = -1); 
 	~Recording(void);
-    int getID();
 	void removeTrack(Track & aTrack);
 	void addTrack(Track & track, int position);
 	vector<Track*> & getTracks();
     string toString() const;
 	
 	private:
-	string title;
-	string artist;
-	string producer;
-	string year;
-	int id;
-	vector<Track*> tracks;
-	vector<Track*>::iterator findPosition(Track & aTrack);
+	string title, artist, producer, year;
 	Recording(const Recording & aRecording); //hide copy constructor in private section	
 };
 

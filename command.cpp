@@ -120,7 +120,7 @@ void Command::parse(string cmdStr)
 	//This parser essentially does a trim() as well because it
 	//uses a stringstream that strips off white space
 	
-	string tokenStr = ""; //for collecting "" quoted substring words
+	string tokenStr; //for collecting "" quoted substring words
 	bool collecting = false; //not collecting quoted words
     while (ss >> buffer){
 		if((buffer.length() == 2) &&
@@ -145,7 +145,7 @@ void Command::parse(string cmdStr)
 			    tokenStr = "";
 			}
 		}
-	    else if((buffer.length() > 1) && (buffer[buffer.length()-1] == '"')) {
+	    else if((buffer.length() > 1) && (buffer[buffer.length() - 1] == '"')) {
 			//word ends with "
 			tokenStr.append(" " + buffer.substr(0,buffer.length()-1));
 			collecting = false;
@@ -164,14 +164,14 @@ void Command::parse(string cmdStr)
 			tokens.push_back(buffer);
 	}
 
-    if(tokens.size() == 0) tokens.push_back("NO COMMAND");
+    if(tokens.empty()) tokens.push_back("NO COMMAND");
 	
    //Command is now tokenized into tokens vector
 	
    //Print parsed command tokens for now
    cout << "PARSED COMMAND:" << '\n';
    //shows use of iterator
-   for (vector<string>::iterator it = tokens.begin(); it!=tokens.end(); ++it)
+   for (auto it = tokens.begin(); it != tokens.end(); ++it)
        cout << *it << '\n';
 
 }

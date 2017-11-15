@@ -3,7 +3,7 @@
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel								 */
 /*  Contributors: Tyler Despatie 101010622			 */
-/*  Date:     21-SEP-2017                            */
+/*  Date:     14-Nov-2017                            */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -32,7 +32,7 @@ Track::Track(const Track & aTrack){
 Track::~Track(){
 	cout << "~Track(void)" << endl;
 }
-int Track::getID(){return id;}
+
 Song * Track::getSong(){return song;}
 string Track::getMp3FileName(){return mp3FileName;}
 

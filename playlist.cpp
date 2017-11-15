@@ -3,7 +3,7 @@
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel								 */
 /*  Contributors: Tyler Despatie 101010622			 */
-/*  Date:     21-SEP-2017                            */
+/*  Date:     14-Nov-2017                            */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -15,10 +15,9 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <iostream>
-#include <string>
-using namespace std;
-
 #include "playlist.h"
+
+using namespace std;
 	
 Playlist::Playlist(const string & aPlaylistName){
 	cout << "Playlist(string&)" << endl;
@@ -32,30 +31,23 @@ Playlist::Playlist(const Playlist & aPlaylist){
 Playlist::~Playlist(){
 	cout << "~Playlist(void)" << endl;
 }
-int Playlist::getID(){return -1;}
+
 string Playlist::getName(){return name;}
 
-vector<Track*> & Playlist::getTracks(){return tracks;}
-
-//TODO: Could be refactored
-vector<Track*>::iterator Playlist::findPosition(Track & aTrack){
-	for (auto itr = tracks.begin() ; itr != tracks.end(); ++itr)
-		if(*itr == &aTrack) return itr;
-	return tracks.end();
-}
+vector<Track*> & Playlist::getTracks(){return collection;}
 
 void Playlist::addTrack(Track & aTrack){
 	//add track if it does not already exist
     auto itr = findPosition(aTrack);
-	if(itr == tracks.end()) {
-		tracks.push_back(&aTrack);
+	if(itr == collection.end()) {
+		collection.push_back(&aTrack);
 	}	
 }
 
 void Playlist::removeTrack(Track & aTrack){
     auto itr = findPosition(aTrack);
-	if(itr != tracks.end()) {
-		tracks.erase(itr);
+	if(itr != collection.end()) {
+		collection.erase(itr);
 	}
 }
 
@@ -65,8 +57,8 @@ string Playlist::toString()const {
     s.append(name);
     s.append("\n");
     s.append(indent + indent + "Playlist Tracks:\n");
-    for (vector<Track *>::size_type i = 0; i < tracks.size(); i++) {
-        s.append(indent + indent + to_string(i) + " " + (tracks[i])->toString() + "\n");
+    for (vector<Track *>::size_type i = 0; i < collection.size(); i++) {
+        s.append(indent + indent + to_string(i) + " " + (collection[i])->toString() + "\n");
     }
 
     return s;

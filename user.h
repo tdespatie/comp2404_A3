@@ -3,7 +3,7 @@
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel								 */
 /*  Contributors: Tyler Despatie 101010622			 */
-/*  Date:     21-SEP-2017                            */
+/*  Date:     14-Nov-2017                            */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -23,7 +23,7 @@
 
 #include "playlist.h"
 
-class User {
+class User: public Data<Playlist> {
 	/*
 	User represents an application user.
 	*/
@@ -31,7 +31,6 @@ class User {
 	User(const string & aUserID, 
 	          const string & aName); 
 	~User(void);
-    int getID();
     string getUserID();
 	Playlist * findPlaylist(const string & aPlaylistName);
 	void removePlaylist(Playlist & aPlayList);
@@ -41,11 +40,10 @@ class User {
 	
 	private:
 	static int nextUserNumericID;
-	int id; //numeric id for uniformity with other model classes
 	string userid;
 	string name;
-	vector<Playlist*> playlists;
-	vector<Playlist*>::iterator findPosition(Playlist & aPlaylist);
+	//vector<Playlist*> playlists;
+	//vector<Playlist*>::iterator findPosition(Playlist & aPlaylist);
 	User(const User & aUser); //hide copy constructor in private section
 };
 

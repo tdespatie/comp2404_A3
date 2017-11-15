@@ -3,7 +3,7 @@
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel								 */
 /*  Contributors: Tyler Despatie 101010622			 */
-/*  Date:     21-SEP-2017                            */
+/*  Date:     14-Nov-2017                             */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -15,10 +15,8 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #include <iostream>
-#include <string>
-using namespace std;
-
 #include "recording.h"
+using namespace std;
 	
 Recording::Recording(const string & aTitle, 
            const string & anArtist,
@@ -31,7 +29,7 @@ Recording::Recording(const string & aTitle,
 	producer = aProducer;
 	year = aYear;
 	id = anID;
-	tracks = vector<Track*>(MAX_NUMBER_OF_TRACKS, NULL);
+	collection = vector<Track*>(MAX_NUMBER_OF_TRACKS, NULL);
 }
 Recording::Recording(const Recording & aRecording){
 	cout << "Recording(const Recording & aRecording)" << endl;
@@ -40,30 +38,30 @@ Recording::Recording(const Recording & aRecording){
 Recording::~Recording(){
 	cout << "~Recording(void)" << endl;
 }
-int Recording::getID(){return id;}
-vector<Track*> & Recording::getTracks(){return tracks;}
+
+vector<Track*> & Recording::getTracks(){return collection;}
 
 
 //TODO: Could be refactored
 vector<Track*>::iterator Recording::findPosition(Track & aTrack){
-	for (auto it = tracks.begin() ; it != tracks.end(); ++it)
+	for (auto it = collection.begin() ; it != collection.end(); ++it)
 		if(*it == &aTrack) return it;
-	return tracks.end();
+	return collection.end();
 }
 
 void Recording::addTrack(Track & aTrack, int position){
 	//add track if it does not already exist
 	auto itr = findPosition(aTrack);
-	if(itr == tracks.end()) {
+	if(itr == collection.end()) {
 		if(position >=0 && position < MAX_NUMBER_OF_TRACKS)
-		   tracks[position] = &aTrack;
+		   collection[position] = &aTrack;
 	}	
 }
 
 void Recording::removeTrack(Track & aTrack){
 	//remove track from recording
-	for(vector<Track*>::size_type i = 0; i<tracks.size(); i++)
-		if(tracks[i] == &aTrack) tracks[i] = NULL;
+	for(vector<Track*>::size_type i = 0; i<collection.size(); i++)
+		if(collection[i] == &aTrack) collection[i] = NULL;
 }
 
 string Recording::toString()const {
@@ -71,10 +69,10 @@ string Recording::toString()const {
 	string s;
 	s.append(to_string(id) + " " + title + " " + artist + " " + producer + " " + year);
 	s.append("\n");
-	s.append(indent + "Tracks:\n");
-	for (vector<Track*>::size_type i = 0 ; i < tracks.size(); i++){
-		if(tracks[i] != NULL)
-		   s.append(indent + to_string(i) + " " + (tracks[i])->toString() + "\n");
+	s.append(indent + "collection:\n");
+	for (vector<Track*>::size_type i = 0 ; i < collection.size(); i++){
+		if(collection[i] != NULL)
+		   s.append(indent + to_string(i) + " " + (collection[i])->toString() + "\n");
 	}
 	
 	return s;

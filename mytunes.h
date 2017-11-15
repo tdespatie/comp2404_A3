@@ -3,7 +3,7 @@
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel								 */
 /*  Contributors: Tyler Despatie 101010622			 */
-/*  Date:     21-SEP-2017                            */
+/*  Date:     14-Nov-2017                             */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -17,7 +17,6 @@
 #ifndef MYTUNES_H
 #define MYTUNES_H
 #include <sstream>
-using namespace std;
 #include "UI.h"
 #include "command.h"
 #include "song.h"
@@ -25,6 +24,8 @@ using namespace std;
 #include "track.h"
 #include "user.h"
 #include "MyTunesCollection.h"
+
+using namespace std;
 
 /*
 This is the main application class.

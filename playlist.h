@@ -3,7 +3,7 @@
 /*  Program:  MyTunes Music Player                   */
 /*  Author:   Louis Nel								 */
 /*  Contributors: Tyler Despatie 101010622			 */
-/*  Date:     21-SEP-2017                            */
+/*  Date:     14-Nov-2017                            */
 /*                                                   */
 /*  (c) 2017 Louis Nel                               */
 /*  All rights reserved.  Distribution and           */
@@ -22,17 +22,15 @@
 #include <vector>
 
 #include "track.h"
-#include "inherit.h"
 
 
-class Playlist {
+class Playlist : public Data<Track> {
 	/*
 	Playlist represents an user playlist of tracks.
 	*/
 	public:
-	Playlist(const string & aPlaylistName); 
-	~Playlist(void);
-    int getID();
+	Playlist(const string & aPlaylistName);
+	~Playlist();
 	string getName();
 	void removeTrack(Track & aTrack);
 	void addTrack(Track & aTrack);
@@ -41,8 +39,6 @@ class Playlist {
 	
 	private:
 	string name;
-	vector<Track*> tracks;	
-	vector<Track*>::iterator findPosition(Track & aTrack);
 	Playlist(const Playlist & aPlaylist); //hide copy constructor in private section
 };
 
